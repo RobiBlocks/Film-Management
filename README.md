@@ -5,9 +5,10 @@
 ## Grob-Planung
 
 1. Welche Programmiersprache möchten Sie verwenden? Was denken Sie, wo Ihre Zeit und Übung am sinnvollsten ist?
+   - Ich möchte mich mit JavaScript und node.js arbeiten.
    
 3. Welche Datenbank-Technologie möchten Sie üben? Fühlen Sie sich sicher mit SQL und möchten etwas Neues ausprobieren; oder möchten Sie sich weiter mit SQL beschäftigen?
-   Ich möchte mich weiter mit SQL beschäftigen, weil ich noch nicht so sattelfest bin.
+   - Ich möchte mich weiter mit SQL beschäftigen, weil ich noch nicht so sattelfest bin und MongoDB im Moment noch sehr schwierig ist.
    
 5. Was wäre ein geeignetes Abschluss-Projekt?
    - Als Abschluss-Projekt möchte ich eine Webseite erstellen, die Star Wars Filme und Serien, sowie deren Erscheinungsjahre und Beschreibungen aus einer SQL Datenbank lädt und auf einer Webseite anzeigt.
@@ -18,11 +19,11 @@
 
 Welche 3 *features* sind die wichtigsten Ihres Projektes? Wie können Sie die Machbarkeit dieser in jeweils 45' am einfachsten beweisen?
 
-- [ ] *make or break feature* 1: Kann ich Bilder in einer SQL Datenbank speichern?
-- [ ] *make or break feature* 2: Kann ich mit JS Inhalte nach Zahlen sortieren?
-- [ ] *make or break feature* 3: Kann ich mit JS Inhalte nach Worten filtern?
+- [ ] *make or break feature* 1: Kann ich Bilder in einer MYSQL speichern und laden?
+- [ ] *make or break feature* 2: Kann ich mit JavaScript Inhalte nach Zahlen sortieren?
+- [ ] *make or break feature* 3: Kann ich mit node.js Inhalte nach Worten filtern?
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich viele Entscheidungen getroffen. Nachdem ich meine Idee aufgeschrieben habe, habe ich eine MYSQL DB erstellt und herausgefunden, wie ich darin Bilder speichern kann. Dann habe ich mit Herrn Colic besprochen, ob ich mit ASP.NET oder node.js programmieren soll. Ich habe mich für node.js entschieden und ein Einführung auf w3schools durchgelesen. Anschliesend fragte ich mich, ob ich MYSQL oder MongoDB verwenden soll. Nachdem ich dies mit Herrn Colic besprochen habe, habe ich mich mit MongoDB beschäftigt. Ich denke ich werde mit MYSQL arbeiten, weil wir noch keine Einführung in MongoDB hatten. (93 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen. Ggf. bietet es sich an, für die Code-Schnipsel einen eigenen Ordner `exploration` zu erstellen.
 
@@ -30,10 +31,10 @@ Welche 3 *features* sind die wichtigsten Ihres Projektes? Wie können Sie die Ma
 
 Ausgehend von Ihren Erfahrungen vom 25.4, welche *features* brauchen noch mehr Recherche? (Sie können auch mehrere AP für ein *feature* aufwenden.)
 
-- [ ] ... (📵)
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Ich verbinde MYSQL mit und lade das Bild auf der Webseite
+- [ ] Ich sortiere eine Charakter-Liste mit JavaScript nach Geburtsjahr
+- [ ] Ich filtere eine Charakter-Liste mit node.js nach Nachname
+- [ ] Ich skizziere die Film- und Serienansicht meiner Webseite (📵)
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
