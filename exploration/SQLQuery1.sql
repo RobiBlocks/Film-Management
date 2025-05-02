@@ -4,9 +4,9 @@ Create TABLE PicturesWithDescription
 (
 	Picture_Id INT IDENTITY(1,1) PRIMARY KEY,
 	Filmname VARCHAR(50),
-	Picture VARBINARY(MAX)
+	Episode INT
 );
 
-INSERT INTO PicturesWithDescription (Filmname, Picture)
-SELECT 'beispiel.jpg', *
-FROM OPENROWSET(BULK N'C:\Users\robin\Desktop\bilder\beispiel.jpg', SINGLE_BLOB) AS BildData;
+INSERT INTO PicturesWithDescription (Filmname) VALUES ('Szymon');
+INSERT INTO PicturesWithDescription (Filmname, Episode) VALUES ('Arvin', 2);
+INSERT INTO PicturesWithDescription (Filmname, Episode) VALUES ('Robin', 1);
