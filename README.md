@@ -51,17 +51,17 @@ Planen Sie nun Ihr Projekt, sodass die *Kern-Funktionalität* in 3 Sitzungen rea
 
 Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen Sie jetzt bereits, auch die Sitzung vom 16.5 und 23.5 zu planen (im Wissen, dass Sie kleine Anpassungen an Ihrer Planung vornehmen können).
 
-- [ ] Ich erstelle eine Datenbank Film-Tabelle und füge erste Filme und Serien hinzu.
+- [x] Ich erstelle ein UML-Diagramm für meine Filme und Serien Datenbank.
+- [x] Ich erstelle eine Datenbank mit den notwendigen Tabellen und füge erste Filme und Serien hinzu.
 - [ ] Ich verbinde das node.js mit der Datenbank und lese die Filme aus der Datenbank aus.
-- [ ] Ich zeige die Filme und deren Bilder auf dem einfachen Frontend an und formattiere das Frontend mit CSS.
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich ein UML-Diagramm mit vier Tabellen und zwei Zwischentabellen erstellt. Dazu musste ich die Unterlagen von M164 nochmals anschauen. Anschliessend habe ich den Code mit SQL im SQL Server Management Studio umgesetzt. Das schwierigste war das Implementieren des Fremdschlüssels. Dann habe ich angefangen die DB mit Daten zu befüllen. Mit dem richtigen Node.js konnte ich noch nicht beginnen. (60 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
 ## 16.5
-
-- [ ] ...
+.
+- [ ] Ich zeige die Filme und deren Bilder auf dem einfachen Frontend an und formattiere das Frontend mit CSS.
 - [ ] ...
 - [ ] ...
 - [ ] ...
