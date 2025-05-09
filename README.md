@@ -60,11 +60,11 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
 ## 16.5
-.
-- [ ] Ich zeige die Filme und deren Bilder auf dem einfachen Frontend an und formattiere das Frontend mit CSS.
-- [ ] ...
-- [ ] ...
-- [ ] ...
+
+- [ ] Ich schreibe eine node.js mit dem Ich Filme aus der DB auslesen kann.
+- [ ] Ich zeige die Filme und deren Bilder auf einem einfachen Frontend an.
+- [ ] Ich formattiere das Frontend mit einem Grid in CSS.
+- [ ] Ich programmiere node.js Code, um einen Neuen Film hinzuzufügen.
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
