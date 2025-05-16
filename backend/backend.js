@@ -35,6 +35,8 @@ const server = http.createServer(async (req, res) => {
 
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(dataWithBase64));
+  } else if (req.url == "/api/add") {
+    //Code für Speichern neuer Filme
   } else {
     res.writeHead(404);
     res.end("Nicht gefunden");

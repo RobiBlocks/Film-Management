@@ -11,7 +11,8 @@
       width: 100%;
       max-width: 800px;
     }
-    th, td {
+    th,
+    td {
       border: 1px solid #ccc;
       padding: 8px;
       text-align: left;
@@ -28,6 +29,7 @@
   <body>
     <h1>Filme und Serien</h1>
     <button id="load">Daten laden</button>
+    <button id="add">Daten hinzufügen</button>
     <table id="filmTable">
       <thead>
         <tr>
@@ -42,7 +44,10 @@
     </table>
 
     <script>
-      document.getElementById("load").addEventListener("click", () => {
+      document.getElementById("load").addEventListener("click", loadFilms);
+      document.getElementById("add").addEventListener("click", addNewFilm);
+
+      function loadFilms() {
         fetch("/api/data")
           .then((res) => res.json())
           .then((filme) => {
@@ -50,7 +55,7 @@
             tbody.innerHTML = "";
 
             filme.forEach((film) => {
-              const tr = document.createElement("tr"); // Hier war querySelector('tr'), muss createElement sein
+              const tr = document.createElement("tr");
 
               const tdName = document.createElement("td");
               tdName.textContent = film.Name;
@@ -78,10 +83,81 @@
               tdDirector.textContent = film.Director;
               tr.appendChild(tdDirector);
 
-              tbody.appendChild(tr); // Hier fehlte das Anhängen der Reihe an den tbody
+              tbody.appendChild(tr);
             });
           });
-      });
+      }
+
+      function addNewFilm() {
+        const tbody = document.querySelector("#filmTable tbody");
+        tbody.innerHTML = "";
+
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        const inputName = document.createElement("input");
+        inputName.type = "text";
+        inputName.placeholder = "Name";
+        tdName.appendChild(inputName);
+        tr.appendChild(tdName);
+
+        const tdBild = document.createElement("td");
+        const inputBild = document.createElement("input");
+        inputBild.type = "file";
+        inputBild.placeholder = "Name";
+        tdBild.appendChild(inputBild);
+        tr.appendChild(tdBild);
+
+        const tdYear = document.createElement("td");
+        const inputYear = document.createElement("input");
+        inputYear.type = "number";
+        inputYear.min = 1900;
+        inputYear.max = 2100;
+        inputYear.placeholder = "Jahr";
+        tdYear.appendChild(inputYear);
+        tr.appendChild(tdYear);
+
+        const tdLength = document.createElement("td");
+        const inputLength = document.createElement("input");
+        inputLength.type = "number";
+        inputLength.placeholder = "Länge";
+        tdLength.appendChild(inputLength);
+        tr.appendChild(tdLength);
+
+        const tdDirector = document.createElement("td");
+        const inputDirector = document.createElement("input");
+        inputDirector.type = "text";
+        inputDirector.placeholder = "Name";
+        tdDirector.appendChild(inputDirector);
+        tr.appendChild(tdDirector);
+
+        const btnSave = document.createElement("button");
+        btnSave.id = "save";
+        btnSave.textContent = "Speichern";
+        
+          btnSave.addEventListener("click", () => {
+            const name = inputName.value;
+            const jahr = inputYear.value;
+            const länge = inputLength.value;
+            const regisseur = inputDirector.value;
+            const bildDatei = inputBild.files[0];
+
+            saveNewFilm(name, jahr, länge, regisseur, bildDatei);
+          });
+
+        tbody.appendChild(tr);
+        tbody.appendChild(btnSave);
+      }
+
+      function saveNewFilm(inputName, inputYear, inputLength, inputDirector, inputBild) {
+        const name = inputName.value;
+        const jahr = inputYear.value;
+        const länge = inputLength.value;
+        const regisseur = inputDirector.value;
+        const bildDatei = inputBild.files[0];
+
+        //Code für Speichern neuer Filme
+      }
     </script>
   </body>
 </html>
