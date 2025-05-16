@@ -63,8 +63,8 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 
 - [ ] Ich schreibe eine node.js mit dem Ich Filme aus der DB auslesen kann.
 - [ ] Ich zeige die Filme und deren Bilder auf einem einfachen Frontend an.
-- [ ] Ich formattiere das Frontend mit einem Grid in CSS.
 - [ ] Ich programmiere node.js Code, um einen Neuen Film hinzuzufügen.
+- [ ] Ich programmiere das Löschen von bestehenden Filmen.
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
@@ -72,8 +72,8 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 
 ## 23.5
 
-- [ ] ...
-- [ ] ...
+- [ ] Ich programmiere das Editieren von bestehenden Filmen
+- [ ] Ich formattiere das Frontend mit einem Grid in CSS.
 - [ ] ...
 - [ ] ...
 
