@@ -61,21 +61,21 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 
 ## 16.5
 
-- [ ] Ich schreibe eine node.js mit dem Ich Filme aus der DB auslesen kann.
-- [ ] Ich zeige die Filme und deren Bilder auf einem einfachen Frontend an.
+- [x] Ich schreibe eine node.js mit dem Ich Filme aus der DB auslesen kann.
+- [x] Ich zeige die Filme und deren Bilder auf einem einfachen Frontend an.
 - [ ] Ich programmiere node.js Code, um einen Neuen Film hinzuzufügen.
 - [ ] Ich programmiere das Löschen von bestehenden Filmen.
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich zunächst manuell vier Star-Wars-Filme in meiner Datenbank gespeichert. Anschließend habe ich die Filme über das Backend aus der Datenbank geladen. Danach habe ich im Frontend eine einfache Tabelle erstellt, in der ich die Filme mithilfe des Frontends auslesen und anzeigen kann. Nach einer Pause habe ich einen Button hinzugefügt, durch den man zu einem Formular gelangt, in dem man Informationen zu einem neuen Film angeben kann. Momentan bereite ich das Backend und das Frontend für das Hinzufügen vor. (81 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
 ## 23.5
 
-- [ ] Ich programmiere das Editieren von bestehenden Filmen
-- [ ] Ich formattiere das Frontend mit einem Grid in CSS.
-- [ ] ...
-- [ ] ...
+- [ ] Ich implementiere die CREATE-Schnittstelle von neuen Filmen im Backend
+- [ ] Ich programmiere die fetch-Anfrage im Frontend, um einen neuen Film hinzuzufügen
+- [ ] Ich implementiere die DELETE-Schnittstelle im Backend
+- [ ] Ich füge eine Spalte in der Tabelle hinzu und implementiere das Löschen von Filmen mit einer fetch-Anfrage
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
