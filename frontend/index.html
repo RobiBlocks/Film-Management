@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Films und Serien</title>
+  </head>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+
+  <body>
+    <h1>Filme und Serien</h1>
+    <button id="load">Daten laden</button>
+    <table id="filmTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Bild</th>
+          <th>Jahr</th>
+          <th>Länge (Minuten)</th>
+          <th>Regisseur</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      document.getElementById("load").addEventListener("click", () => {
+        fetch("/api/data")
+          .then((res) => res.json())
+          .then((filme) => {
+            const tbody = document.querySelector("#filmTable tbody");
+            tbody.innerHTML = "";
+
+            filme.forEach((film) => {
+              const tr = document.createElement("tr"); // Hier war querySelector('tr'), muss createElement sein
+
+              const tdName = document.createElement("td");
+              tdName.textContent = film.Name;
+              tr.appendChild(tdName);
+
+              const tdPic = document.createElement("td");
+              if (film.Picture) {
+                const img = document.createElement("img");
+                img.src = "data:image/jpeg;base64," + film.Picture;
+                tdPic.appendChild(img);
+              } else {
+                tdPic.textContent = "kein Bild";
+              }
+              tr.appendChild(tdPic);
+
+              const tdYear = document.createElement("td");
+              tdYear.textContent = film.Year;
+              tr.appendChild(tdYear);
+
+              const tdLength = document.createElement("td");
+              tdLength.textContent = film.Length;
+              tr.appendChild(tdLength);
+
+              const tdDirector = document.createElement("td");
+              tdDirector.textContent = film.Director;
+              tr.appendChild(tdDirector);
+
+              tbody.appendChild(tr); // Hier fehlte das Anhängen der Reihe an den tbody
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
