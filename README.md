@@ -12,8 +12,8 @@
    
 5. Was wäre ein geeignetes Abschluss-Projekt?
    - Als Abschluss-Projekt möchte ich eine Webseite erstellen, die Star Wars Filme und Serien, sowie deren Erscheinungsjahre und Beschreibungen aus einer SQL Datenbank lädt und auf einer Webseite anzeigt.
-   - Auf der Webseite kann man nach Namen oder Erscheinungsjahr sortieren und filtern.
    - Auf der Webseite kann man neue Filme hinzufügen, bestehende bearbeiten oder löschen.
+   - Auf der Webseite kann man nach Namen oder Erscheinungsjahr sortieren und filtern.
 
 ## 25.4
 
@@ -72,12 +72,12 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 
 ## 23.5
 
-- [ ] Ich implementiere die CREATE-Schnittstelle von neuen Filmen im Backend
-- [ ] Ich programmiere die fetch-Anfrage im Frontend, um einen neuen Film hinzuzufügen
+- [x] Ich implementiere die CREATE-Schnittstelle von neuen Filmen im Backend
+- [x] Ich programmiere die fetch-Anfrage im Frontend, um einen neuen Film hinzuzufügen
 - [ ] Ich implementiere die DELETE-Schnittstelle im Backend
 - [ ] Ich füge eine Spalte in der Tabelle hinzu und implementiere das Löschen von Filmen mit einer fetch-Anfrage
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich mit dem Hinzufügen neuer Filme beschäftigt. Allerdings habe ich bemerkt, dass ich mit 'express' arbeiten sollte. Deshalb musste ich den Code von den GET Anfragen ein wenig überarbeiten. Danach habe ich den Code für die POST Anfrage geschrieben. Dabei hatte ich mit der Grösse des Bildes zu kämpfen, weil es immer zu einem Payload Fehler kam. Deswegen habe ich mich entschieden mit 'multer' zu arbeiten. Zudem habe ich meine html Datei in eine html, eine css und eine js Datei aufgeteilt. Zum Löschen der Filme bin ich nicht gekommen. (92 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
@@ -85,10 +85,12 @@ Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen
 
 Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Allerdings gibt es sicher noch Teile, welche "schöner" werden können: Layout, Code, Architektur... beschreiben Sie kurz den Stand Ihres Projekts, und leiten Sie daraus 6 solche "kosmetischen" AP für den 6.6 und den 13.6 ab.
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+(Im Moment stecke ich in Kern-Funktionalität 2 und diese ist sehr wichtig. Deshalb werde ich sie in den nächsten APs noch abschliessen. Die letzten zwei APs werde ich für das css verwenden.)
+
+- [ ] Ich programmiere die DELETE-Schnittstelle im Backend mithilfe von express
+- [ ] Ich erweitere die Tabelle, um eine Löschen Spalte mit Buttons und verbinde das HTML mit der DELETE-Schnittstelle
+- [ ] Ich implementiere die PUT-Schnittstelle im Backend
+- [ ] Ich erstelle einen Button, der zu einem Formular führt, in welchem man einen Film bearbeiten kann und implementiere die PUT-Schnittstelle im Frontend
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
