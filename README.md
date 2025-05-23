@@ -98,8 +98,8 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 ## 13.6
 
-- [ ] ...
-- [ ] ...
+- [ ] Ich bearbeite das layout der Webseite
+- [ ] Ich passe die Farben an Star Wars an
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
