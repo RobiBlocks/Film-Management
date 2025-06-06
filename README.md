@@ -92,14 +92,14 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 - [ ] Ich implementiere die PUT-Schnittstelle im Backend
 - [ ] Ich erstelle einen Button, der zu einem Formular führt, in welchem man einen Film bearbeiten kann und implementiere die PUT-Schnittstelle im Frontend
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich sehr viel erreicht. Ich konnte alle APs erfolgreich erledigen. Nun sind die DELETE-Schnittstelle und die UPDATE-Schnittstelle implementiert. Man kann nun Filme löschen und bearbeiten. Da mir am Schluss sogar noch Zeit übrig blieb konnte ich sogar schon die Farben verändern. Dennoch bin ich mit den Farben und dem Layout noch nicht zufrieden. (55 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
 ## 13.6
 
-- [ ] Ich bearbeite das layout der Webseite
-- [ ] Ich passe die Farben an Star Wars an
+- [ ] Ich bearbeite das layout und die Farben der Webseite an
+- [ ] Ich verbessere die Struktur und Übersichtlichkeit des Codes
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
