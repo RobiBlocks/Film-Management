@@ -101,7 +101,7 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 - [ ] Ich passe das layout und die Farben der Webseite an
 - [ ] Ich verbessere die Struktur und Übersichtlichkeit des Codes
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich viel am Design gearbeitet. Ich habe einen Light- und Darkmode hinzugefügt und die Ansicht für das Handy angepasst und verfeinert. Da mir am Schluss noch Zeit übrig blieb habe ich die Farben beim hovern über die Buttons an CRUD angepasst. Die Webseite hat nun alle wichtigen Funktionen und ein schönes und cleanes Design. (56 Wörter)
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
