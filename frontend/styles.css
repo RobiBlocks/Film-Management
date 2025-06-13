@@ -1,49 +1,28 @@
 * {
-  color: white;
-  font-family:Arial, Helvetica, sans-serif
+  --light-light: rgb(224, 219, 255);
+  --light-middle: rgb(175, 170, 196);
+  --light-dark: rgb(137, 135, 155);
+
+  --dark-light: rgb(50, 52, 73);
+  --dark-middle: rgb(35, 36, 51);
+  --dark-dark: rgb(0, 0, 30);
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
 }
 body {
-  background-color: rgb(0, 0, 30);
+  background-color: var(--light-light);
   text-align: center;
   margin: 0px;
   padding: 60px;
 }
 h1 {
   font-size: 50px;
-  background-color: rgb(35, 36, 51);
-  border: 2px solid rgb(50, 52, 73);
+  background-color: var(--light-middle);
+  border: 2px solid var(--light-dark);
   text-align: center;
   padding: 20px;
   margin: 0px;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th,
-td {
-  border: 2px solid rgb(50, 52, 73);
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: rgb(35, 36, 51);
-}
-button {
-  background-color: rgb(35, 36, 51);
-  padding: 10px 20px;
-  margin: 20px;
-  border: 2px solid rgb(65, 67, 95);
-  border-radius: 2px;   
-}
-button:hover {
-  background-color: rgb(65, 67, 95);
-  transform: scale(1.05);
-}
-#load, #add{
-  display: inline-block;
-  margin: 50px 20px;
-  padding: 20px 40px;
 }
 img {
   max-width: 200px;
@@ -51,4 +30,154 @@ img {
 }
 input {
   color: black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  border: 2px solid var(--light-dark);
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: var(--light-middle);
+}
+
+button {
+  background-color: var(--light-middle);
+  padding: 10px 20px;
+  margin: 20px;
+  border: 2px solid var(--light-dark);
+  border-radius: 8px;
+}
+button:hover {
+  background-color: var(--light-dark);
+  transform: scale(1.1);
+  transition: background 0.2s, transform 0.2s;
+  color: white;
+}
+#btnLoad,
+#btnAdd {
+  display: inline-block;
+  margin: 50px 20px;
+  padding: 20px 40px;
+}
+#btnLoad:hover {
+  background-color: blue;
+  border: 2px solid darkblue;
+}
+#btnAdd:hover {
+  background-color: green;
+  border: 2px solid darkgreen;
+}
+#btnDelete:hover {
+  background-color: red;
+  border: 2px solid darkred;
+}
+#btnEdit:hover {
+  background-color: orange;
+  border: 2px solid darkorange;
+}
+#toggleColorBtn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  background-color: var(--light-middle);
+  border: 2px solid var(--light-dark);
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#toggleColorBtn:hover {
+  background-color: var(--light-dark);
+}
+
+body.dark-mode {
+  background-color: var(--dark-dark);
+  color: white;
+}
+body.dark-mode h1,
+body.dark-mode th,
+body.dark-mode button {
+  background-color: var(--dark-middle);
+  border-color: var(--dark-light);
+  color: white;
+}
+body.dark-mode th,
+body.dark-mode td {
+  border-color: var(--dark-light);
+  color: white;
+}
+body.dark-mode input {
+  color: black;
+}
+body.dark-mode #toggleColorBtn {
+  background-color: var(--dark-middle);
+  border-color: var(--dark-light);
+}
+body.dark-mode button:hover {
+  background-color: var(--dark-light);
+}
+body.dark-mode #toggleColorBtn:hover {
+  background-color: var(--dark-light);
+}
+
+::selection {
+  background: rgb(74, 144, 226);
+  color: black;
+}
+body.dark-mode ::selection {
+  background: rgb(74, 144, 226);
+  color: white;
+}
+
+@media (max-width: 992px) {
+  #btnLoad {
+    margin: 50px 20px 20px 20px;
+  }
+  #btnAdd {
+    margin: 2px 20px 50px 20px;
+  }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+  thead tr {
+    display: none;
+  }
+  tr {
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--light-dark);
+  }
+  td {
+    position: relative;
+    min-height: 40px;
+    border: none;
+    border-bottom: 1px solid var(--light-dark);
+    text-align: center;
+  }
+  td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
 }

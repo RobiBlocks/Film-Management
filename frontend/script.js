@@ -1,5 +1,21 @@
-document.getElementById("load").addEventListener("click", loadFilms);
-document.getElementById("add").addEventListener("click", loadAddForm);
+document.getElementById("btnLoad").addEventListener("click", loadFilms);
+document.getElementById("btnAdd").addEventListener("click", loadAddForm);
+const toggleBtn = document.getElementById('toggleColorBtn');
+
+function updateToggleIcon() {
+  if (document.body.classList.contains('dark-mode')) {
+    toggleBtn.textContent = '☀️';
+    toggleBtn.title = 'Light Mode aktivieren';
+  } else {
+    toggleBtn.textContent = '🌕';
+    toggleBtn.title = 'Dark Mode aktivieren';
+  }
+}
+
+toggleBtn.addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  updateToggleIcon();
+});
 
 window.addEventListener("load", loadFilms);
 
@@ -45,6 +61,7 @@ function loadFilms() {
 
         var btnDelete = document.createElement("button");
         btnDelete.textContent = "Löschen";
+        btnDelete.id = "btnDelete";
         btnDelete.addEventListener("click", () => {
           deleteFilm(film.FilmId);
         });
@@ -52,12 +69,13 @@ function loadFilms() {
 
         var btnEdit = document.createElement("button");
         btnEdit.textContent = "Bearbeiten";
-        tdEdit.appendChild(btnEdit);
+        btnEdit.id = "btnEdit";
         btnEdit.addEventListener("click", () => {
           loadUpdateForm(film.FilmId);
         });
-        tr.appendChild(tdEdit);
+        tdEdit.appendChild(btnEdit);
 
+        tr.appendChild(tdEdit);
         tbody.appendChild(tr);
       });
     });
