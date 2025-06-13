@@ -87,10 +87,10 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 (Im Moment stecke ich in Kern-Funktionalität 2 und diese ist sehr wichtig. Deshalb werde ich sie in den nächsten APs noch abschliessen. Die letzten zwei APs werde ich für das css verwenden.)
 
-- [ ] Ich programmiere die DELETE-Schnittstelle im Backend mithilfe von express
-- [ ] Ich erweitere die Tabelle, um eine Löschen Spalte mit Buttons und verbinde das HTML mit der DELETE-Schnittstelle
-- [ ] Ich implementiere die PUT-Schnittstelle im Backend
-- [ ] Ich erstelle einen Button, der zu einem Formular führt, in welchem man einen Film bearbeiten kann und implementiere die PUT-Schnittstelle im Frontend
+- [x] Ich programmiere die DELETE-Schnittstelle im Backend mithilfe von express
+- [x] Ich erweitere die Tabelle, um eine Löschen Spalte mit Buttons und verbinde das HTML mit der DELETE-Schnittstelle
+- [x] Ich implementiere die PUT-Schnittstelle im Backend
+- [x] Ich erstelle einen Button, der zu einem Formular führt, in welchem man einen Film bearbeiten kann und implementiere die PUT-Schnittstelle im Frontend
 
 ✍️ Heute habe ich sehr viel erreicht. Ich konnte alle APs erfolgreich erledigen. Nun sind die DELETE-Schnittstelle und die UPDATE-Schnittstelle implementiert. Man kann nun Filme löschen und bearbeiten. Da mir am Schluss sogar noch Zeit übrig blieb konnte ich sogar schon die Farben verändern. Dennoch bin ich mit den Farben und dem Layout noch nicht zufrieden. (55 Wörter)
 
@@ -98,7 +98,7 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 ## 13.6
 
-- [ ] Ich bearbeite das layout und die Farben der Webseite an
+- [ ] Ich passe das layout und die Farben der Webseite an
 - [ ] Ich verbessere die Struktur und Übersichtlichkeit des Codes
 
 ✍️ Heute habe ich... (50-100 Wörter)
