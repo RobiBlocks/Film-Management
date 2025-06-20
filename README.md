@@ -109,12 +109,12 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 Was fehlt Ihrem fertigen Projekt noch, um es auszuliefern? Reicht die Zeit für ein *nice-to-have feature*?
 
-- [ ] Ich erstelle einen Button für "weitere Informationen" und erweitere die SQL-Tabelle um weitere Spalten, wie Trailer, Beschreibung usw.
-- [ ] Ich zeige auf der "weitere Informationen" Seite die zusätzliche Informationen über den jeweiligen Film an
+- [x] Ich erstelle einen Button für "weitere Informationen" und erweitere die SQL-Tabelle um weitere Spalten, wie z.B. Trailer
+- [x] Ich zeige auf der "weitere Informationen" Seite die zusätzliche Informationen über den jeweiligen Film an
 - [ ] Ich mache kleine Ausbesserungen und betreibe refactoring
 - [ ] Ich bereite die Materialien der Präsentation vor und übe sie
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich mich vor allem um die Funktion "weitere Details" gekümmert. Zuerst habe ich die SQL-Tabelle um die Spalte "Trailer" erweitert. Anschliessend habe ich die Buttons "weiter Details" eingefügt und habe auf dieser Details Seite, viele Informationen über einen Film auflisten lassen. Auf der Hauptseite sind nun weniger Informationen zu sehen. Dann habe ich mich noch um einige kleiner Updates gekümmert. Den Button "Daten laden" habe ich gelöscht und der Button "Film hinzufügen" ist nur noch auf der Startseite zu sehen. Zum Schluss habe ich noch einige Fehler aus dem Hinzufügen und Updaten der Links behoben und einige Abstände angepasst. (101 Wörter)
 
 ☝️ Vergessen Sie nicht, die Unterlagen für Ihre Präsentation auf github hochzuladen.
 
