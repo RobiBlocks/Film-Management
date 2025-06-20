@@ -35,6 +35,7 @@ app.post("/api/films/load", async (req, res) => {
       Year: film.Year,
       Length: film.Length,
       Director: film.Director,
+      Trailer: film.Trailer,
     }));
     res.json(data);
   } catch (err) {
@@ -45,7 +46,7 @@ app.post("/api/films/load", async (req, res) => {
 
 app.post("/api/films/add", upload.single("bild"), async (req, res) => {
   try {
-    const { name, jahr, length, regisseur } = req.body;
+    const { name, jahr, length, trailer, regisseur } = req.body;
 
     let bild;
     if (req.file && req.file.buffer) {
@@ -61,10 +62,11 @@ app.post("/api/films/add", upload.single("bild"), async (req, res) => {
     request.input("Year", sql.Int, parseInt(jahr));
     request.input("Length", sql.Int, parseInt(length));
     request.input("Director", sql.NVarChar, regisseur);
+    request.input("Trailer", sql.NVarChar, req.body.trailer || null);
 
     await request.query(`
-      INSERT INTO Film (Name, Picture, Year, Length, Director)
-      VALUES (@Name, @Picture, @Year, @Length, @Director)
+      INSERT INTO Film (Name, Picture, Year, Length, Director, Trailer)
+      VALUES (@Name, @Picture, @Year, @Length, @Director, @Trailer)
     `);
 
     res.json({ erfolg: true });
@@ -77,7 +79,7 @@ app.post("/api/films/add", upload.single("bild"), async (req, res) => {
 app.put("/api/films/:id", upload.single("bild"), async (req, res) => {
   try {
     const filmId = parseInt(req.params.id);
-    const { name, jahr, length, regisseur } = req.body;
+    const { name, jahr, length, regisseur, trailer } = req.body;
 
     await sql.connect(config);
     const request = new sql.Request();
@@ -87,6 +89,7 @@ app.put("/api/films/:id", upload.single("bild"), async (req, res) => {
     request.input("Year", sql.Int, parseInt(jahr));
     request.input("Length", sql.Int, parseInt(length));
     request.input("Director", sql.NVarChar, regisseur);
+    request.input("Trailer", sql.NVarChar, req.body.trailer);
 
     if (req.file && req.file.buffer) {
       request.input("Picture", sql.VarBinary(sql.MAX), req.file.buffer);
@@ -97,7 +100,8 @@ app.put("/api/films/:id", upload.single("bild"), async (req, res) => {
             Picture = @Picture,
             Year = @Year,
             Length = @Length,
-            Director = @Director
+            Director = @Director,
+            Trailer = @Trailer
         WHERE FilmId = @FilmId
       `);
 
@@ -110,7 +114,8 @@ app.put("/api/films/:id", upload.single("bild"), async (req, res) => {
         SET Name = @Name,
             Year = @Year,
             Length = @Length,
-            Director = @Director
+            Director = @Director,
+            Trailer = @Trailer
         WHERE FilmId = @FilmId
       `);
 

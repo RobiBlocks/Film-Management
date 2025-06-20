@@ -1,38 +1,103 @@
-document.getElementById("btnLoad").addEventListener("click", loadFilms);
 document.getElementById("btnAdd").addEventListener("click", loadAddForm);
-const toggleBtn = document.getElementById('toggleColorBtn');
+const body = document.getElementsByTagName("body")[0];
+const toggleBtn = document.getElementById("toggleColorBtn");
 
 function updateToggleIcon() {
-  if (document.body.classList.contains('dark-mode')) {
-    toggleBtn.textContent = '☀️';
-    toggleBtn.title = 'Light Mode aktivieren';
+  if (document.body.classList.contains("dark-mode")) {
+    toggleBtn.textContent = "☀️";
+    toggleBtn.title = "Light Mode aktivieren";
   } else {
-    toggleBtn.textContent = '🌕';
-    toggleBtn.title = 'Dark Mode aktivieren';
+    toggleBtn.textContent = "🌕";
+    toggleBtn.title = "Dark Mode aktivieren";
   }
 }
 
-toggleBtn.addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
+toggleBtn.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
   updateToggleIcon();
 });
 
 window.addEventListener("load", loadFilms);
 
+function createTable(showAllColumns = false) {
+  const existingTable = document.getElementById("filmTable");
+  if (existingTable) {
+    existingTable.remove();
+  }
+
+  const table = document.createElement("table");
+  table.id = "filmTable";
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  if (showAllColumns) {
+    headerRow.innerHTML = `
+      <th>Name</th>
+      <th>Bild</th>
+      <th>Jahr</th>
+      <th>Länge (Minuten)</th>
+      <th>Regisseur</th>
+      <th>Trailer</th>
+      <th>Bearbeiten</th>
+    `;
+  } else {
+    headerRow.innerHTML = `
+      <th>Name</th>
+      <th>Bild</th>
+      <th>Bearbeiten</th>
+    `;
+  }
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  tbody.id = "filmTableBody";
+  table.appendChild(tbody);
+
+  body.appendChild(table);
+  showStartActions(false);
+  return table;
+}
+
+function showStartActions(show) {
+  const actions = document.getElementById("startActions");
+  const table = document.querySelector("table");
+  if (actions) actions.style.display = show ? "block" : "none";
+  if (table) {
+    if (!show) {
+      table.classList.add("table-margin");
+    } else {
+      table.classList.remove("table-margin");
+    }
+  }
+}
+
 function loadFilms() {
+  removeBackBtn();
+  createTable(false);
+  showStartActions(true);
+  document.body.classList.remove("force-mobile");
+  const tbody = document.getElementById("filmTableBody");
+  tbody.innerHTML = "";
+
   fetch("/api/films/load", {
     method: "POST",
   })
     .then((res) => res.json())
     .then((filme) => {
-      const tbody = document.querySelector("#filmTable tbody");
-      tbody.innerHTML = "";
-
       filme.forEach((film) => {
         const tr = document.createElement("tr");
 
         const tdName = document.createElement("td");
         tdName.textContent = film.Name;
+
+        var btnMore = document.createElement("button");
+        btnMore.textContent = "Weitere Details";
+        btnMore.id = "btnMore";
+        btnMore.addEventListener("click", () => {
+          showFilmDetails(film.FilmId);
+        });
+        tdName.appendChild(btnMore);
+
         tr.appendChild(tdName);
 
         const tdPic = document.createElement("td");
@@ -44,18 +109,6 @@ function loadFilms() {
           tdPic.textContent = "kein Bild";
         }
         tr.appendChild(tdPic);
-
-        const tdYear = document.createElement("td");
-        tdYear.textContent = film.Year;
-        tr.appendChild(tdYear);
-
-        const tdLength = document.createElement("td");
-        tdLength.textContent = film.Length;
-        tr.appendChild(tdLength);
-
-        const tdDirector = document.createElement("td");
-        tdDirector.textContent = film.Director;
-        tr.appendChild(tdDirector);
 
         const tdEdit = document.createElement("td");
 
@@ -81,7 +134,56 @@ function loadFilms() {
     });
 }
 
+function showFilmDetails(filmId) {
+  showStartActions(false);
+  document.body.classList.add("force-mobile");
+  fetch("/api/films/load", { method: "POST" })
+    .then((res) => res.json())
+    .then((filme) => {
+      const film = filme.find((f) => f.FilmId === filmId);
+      if (!film) return;
+
+      const tbody = document.querySelector("#filmTable tbody");
+      tbody.innerHTML = "";
+
+      const tr = document.createElement("tr");
+      const tdDetails = document.createElement("td");
+
+      let html = `<h2>${film.Name}</h2>`;
+      html += `<p><strong>Jahr:</strong> ${film.Year}</p>`;
+      html += `<p><strong>Länge:</strong> ${film.Length} Minuten</p>`;
+      html += `<p><strong>Regisseur:</strong> ${film.Director}</p>`;
+
+      if (film.Trailer) {
+        let embedUrl = film.Trailer;
+        if (embedUrl.includes("youtube.com/watch")) {
+          const urlObj = new URL(embedUrl);
+          const videoId = urlObj.searchParams.get("v");
+          if (videoId) {
+            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+          }
+        }
+        html += `<iframe width="420" height="236" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+      } else {
+        html += `<p><em>Kein Trailer verfügbar.</em></p>`;
+      }
+      html += `<br><button id="btnBack">Zurück</button>`;
+
+      tdDetails.innerHTML = html;
+      tr.appendChild(tdDetails);
+      tbody.appendChild(tr);
+
+      document.getElementById("btnBack").addEventListener("click", () => {
+        loadFilms();
+        document.body.classList.remove("force-mobile");
+      });
+    });
+}
+
 function loadAddForm() {
+  showStartActions(false);
+  removeBackBtn();
+  createTable(true); // Alle Spaltenüberschriften anzeigen
   const tbody = document.querySelector("#filmTable tbody");
   tbody.innerHTML = "";
 
@@ -124,6 +226,13 @@ function loadAddForm() {
   tdDirector.appendChild(inputDirector);
   tr.appendChild(tdDirector);
 
+  const tdTrailer = document.createElement("td");
+  const inputTrailer = document.createElement("input");
+  inputTrailer.type = "text";
+  inputTrailer.placeholder = "YouTube-URL";
+  tdTrailer.appendChild(inputTrailer);
+  tr.appendChild(tdTrailer);
+
   const tdSave = document.createElement("td");
   const btnSave = document.createElement("button");
   btnSave.textContent = "Speichern";
@@ -132,22 +241,26 @@ function loadAddForm() {
     const jahr = inputYear.value;
     const länge = inputLength.value;
     const regisseur = inputDirector.value;
+    const trailer = inputTrailer.value;
     const bildDatei = inputBild.files[0];
 
-    await addFilm(name, jahr, länge, regisseur, bildDatei);
+    await addFilm(name, jahr, länge, regisseur, trailer, bildDatei);
     loadFilms();
   });
   tdSave.appendChild(btnSave);
   tr.appendChild(tdSave);
   tbody.appendChild(tr);
+
+  showBackBtn();
 }
 
-function addFilm(name, jahr, länge, regisseur, bildDatei) {
+function addFilm(name, jahr, länge, regisseur, trailer, bildDatei) {
   const formData = new FormData();
   formData.append("name", name);
   formData.append("jahr", jahr);
   formData.append("length", länge);
   formData.append("regisseur", regisseur);
+  formData.append("trailer", trailer);
   if (bildDatei) {
     formData.append("bild", bildDatei);
   }
@@ -159,6 +272,9 @@ function addFilm(name, jahr, länge, regisseur, bildDatei) {
 }
 
 function loadUpdateForm(id) {
+  showStartActions(false);
+  removeBackBtn();
+  createTable(true);
   fetch("/api/films/load", { method: "POST" })
     .then((res) => res.json())
     .then((filme) => {
@@ -206,6 +322,14 @@ function loadUpdateForm(id) {
       tdDirector.appendChild(inputDirector);
       tr.appendChild(tdDirector);
 
+      const tdTrailer = document.createElement("td");
+      const inputTrailer = document.createElement("input");
+      inputTrailer.type = "text";
+      inputTrailer.placeholder = "YouTube-URL";
+      inputTrailer.value = film.Trailer;
+      tdTrailer.appendChild(inputTrailer);
+      tr.appendChild(tdTrailer);
+
       const tdSave = document.createElement("td");
       const btnSave = document.createElement("button");
       btnSave.textContent = "Speichern";
@@ -215,10 +339,10 @@ function loadUpdateForm(id) {
         formData.append("jahr", inputYear.value);
         formData.append("length", inputLength.value);
         formData.append("regisseur", inputDirector.value);
+        formData.append("trailer", inputTrailer.value);
         if (inputBild.files.length > 0) {
           formData.append("bild", inputBild.files[0]);
         }
-
         try {
           await updateFilm(id, formData);
           loadFilms();
@@ -230,6 +354,8 @@ function loadUpdateForm(id) {
       tr.appendChild(tdSave);
       tbody.appendChild(tr);
     });
+
+  showBackBtn();
 }
 
 function updateFilm(id, formData) {
@@ -263,4 +389,19 @@ function deleteFilm(id) {
     .catch((err) => {
       console.error(err);
     });
+}
+
+function showBackBtn() {
+  const backBtn = document.createElement("button");
+  backBtn.id = "btnBack";
+  backBtn.textContent = "Zurück";
+  body.appendChild(backBtn);
+  backBtn.addEventListener("click", () => {
+    loadFilms();
+  });
+}
+
+function removeBackBtn() {
+  const btn = document.getElementById("btnBack");
+  if (btn) btn.remove();
 }
