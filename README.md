@@ -98,8 +98,8 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 ## 13.6
 
-- [ ] Ich erstelle einen Button, um zwischen Light- und Darkmode zu wechseln
-- [ ] Ich passe die Ansicht für das Smartphone an und zeige die Filme untereinander
+- [x] Ich erstelle einen Button, um zwischen Light- und Darkmode zu wechseln
+- [x] Ich passe die Ansicht für das Smartphone an und zeige die Filme untereinander
 
 ✍️ Heute habe ich viel am Design gearbeitet. Ich habe einen Light- und Darkmode hinzugefügt und die Ansicht für das Handy angepasst und verfeinert. Da mir am Schluss noch Zeit übrig blieb habe ich die Farben beim hovern über die Buttons an CRUD angepasst. Die Webseite hat nun alle wichtigen Funktionen und ein schönes und cleanes Design. (56 Wörter)
 
@@ -109,12 +109,10 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 
 Was fehlt Ihrem fertigen Projekt noch, um es auszuliefern? Reicht die Zeit für ein *nice-to-have feature*?
 
-- [ ] Ich überlege bis nächstes Mal
-
-Bereiten Sie in den verbleibenden 2 AP Ihre Präsentation vor
-
-- [ ] Materialien der Präsentation vorbereiten
-- [ ] Präsentation üben
+- [ ] Ich erstelle einen Button für "weitere Informationen" und erweitere die SQL-Tabelle um weitere Spalten, wie Trailer, Beschreibung usw.
+- [ ] Ich zeige auf der "weitere Informationen" Seite die zusätzliche Informationen über den jeweiligen Film an
+- [ ] Ich mache kleine Ausbesserungen und betreibe refactoring
+- [ ] Ich bereite die Materialien der Präsentation vor und übe sie
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
