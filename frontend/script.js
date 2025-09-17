@@ -183,7 +183,7 @@ function showFilmDetails(filmId) {
 function loadAddForm() {
   showStartActions(false);
   removeBackBtn();
-  createTable(true); // Alle Spaltenüberschriften anzeigen
+  createTable(true);
   const tbody = document.querySelector("#filmTable tbody");
   tbody.innerHTML = "";
 
@@ -373,22 +373,26 @@ function updateFilm(id, formData) {
 }
 
 function deleteFilm(id) {
-  fetch(`/api/films/${id}`, {
-    method: "DELETE",
-  })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Fehler beim Löschen");
-      }
-      return res.json();
+  if (confirm("Do you want to delete this film?") == true) {
+    fetch(`/api/films/${id}`, {
+      method: "DELETE",
     })
-    .then((data) => {
-      console.log(data.message);
-      loadFilms();
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Fehler beim Löschen");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data.message);
+        loadFilms();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  } else {
+    text = "You canceled!";
+  }
 }
 
 function showBackBtn() {
